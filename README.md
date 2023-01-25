@@ -8,19 +8,19 @@ deployment.
 
 ## First
 
-Rename 'project_' into something more apropriate, then change the word 'project_' in a few files:
+Rename 'project_' into something more apropriate, then search and change
+ the word 'project_' in a few files:
 - manage.py
 - settings.py
-- Dockerfile (the gunicorn command)
-
+- prod_config/entrypoint.sh (the gunicorn command)
 
 ## Environment variables
 
-### Production
+Environment variables are stored in the .env file override them on the
+server in production.
 
-Do not forget to set this on the server :
+## Tests
 
-- SECRET_KEY
-- EMAIL_HOST_PASSWORD
+`coverage run ./manage.py test -v 2` # [-v 2 ] for verbose
 
-Some other variables are set in docker-compose.yml, check it to configure the application.
+`coverage report` to see the report
