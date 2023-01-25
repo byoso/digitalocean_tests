@@ -1,0 +1,21 @@
+{% extends "_base.html" %}
+
+
+{% block content %}
+
+<h1>Account</h1>
+
+<h3>{{user.username}} - {{ user.email }}</h3>
+    secret id: {{ user.id }}
+    <hr>
+<p>
+   <a href="{% url 'change_username' %}">Change my Username</a>
+</p>
+<p>
+   <a href="{% url 'change_email' %}"> Change my email </a>
+</p>
+<p>
+   <a href="{% url 'request_password_reset' %}">Reset my password</a>
+</p>
+
+{% endblock content %}

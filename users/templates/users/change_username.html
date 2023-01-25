@@ -1,0 +1,29 @@
+{% extends "_base.html" %}
+
+
+{% block content %}
+
+<h1>Change Username</h1>
+
+Current username: {{ user.username }} <br>
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    <p>
+        {{ form.username.label }} <br>
+        {{ form.username }} <br>
+        {% for error in form.errors.username %}
+        <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+
+    </p>
+    <p>
+        <input type="submit" value="confirm">
+    </p>
+
+</form>
+
+
+
+{% endblock content %}
