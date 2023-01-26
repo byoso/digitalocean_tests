@@ -27,7 +27,7 @@ services:
     build: .
     restart: always
     ports:
-      - 8000:8000
+      - ${PROD_PORT}:${PROD_PORT}
     env_file:
       - .env
     networks:

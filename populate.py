@@ -38,7 +38,8 @@ def set_images(project, icon_name=None, shot_name=None):
 
 def create_superuser():
     """Create a superuser."""
-    if not User.objects.filter(username=os.environ.get('DJANGO_SUPERUSER_USERNAME')).exists():
+    if not User.objects.filter(
+            username=os.environ.get('DJANGO_SUPERUSER_USERNAME')).exists():
         user = User.objects.create(
             username=os.environ.get('DJANGO_SUPERUSER_USERNAME'),
             email=os.environ.get('DJANGO_SUPERUSER_EMAIL'),
@@ -55,6 +56,7 @@ def create_superuser():
 def populate():
     """Populate the database with some data."""
     create_superuser()
+    # add other data here
 
 
 # in the shell: __name__ == 'django.core.management.commands.shell
@@ -63,4 +65,3 @@ if str(os.environ.get('POPULATE')) == '1':
     print("Populating script!")
     populate()
     print("Populating done!")
-    os.environ['POPULATE'] = '0'
